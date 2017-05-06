@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 @Configuration
 @ComponentScan(basePackages = {"org.projet.hopital"})
-public class HopitalApplication  extends WebMvcConfigurerAdapter {
+public class HopitalApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(HopitalApplication.class, args);
