@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments/common :: headTag">
+</head>
+<body>
+<!-- Header -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-ratp">
+    <div th:replace="fragments/common :: navigation"></div>
+</nav>
+<!-- Content -->
+<div class="container" >
+    <div class="row">
+        <div>
+            <h3>Gestion des dossiers</h3>
+            <a th:href="@{/dossiers/new}" type="button" class="btn btn-primary"
+                    aria-label="Nouveau dossier">Nouveau dossier
+            </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="display" id="dossiers-table" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th th:text="ID"></th>
+                    <th th:text="Patient"></th>
+                    <th th:text="Actions"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="dossier : ${dossiers}">
+                    <td th:text="${dossier.id}"></td>
+                    <td th:text="${dossier.patient.nom +' ' + dossier.patient.prenom}"></td>
+                    <td>
+                        <a class="btn btn-primary" th:href="@{|/dossiers/${dossier.id}/edit|}" role="button">Modifier</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <!-- Footer -->
+    <footer th:include="fragments/common :: footer"></footer>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dossiers-table').DataTable({
+            language: language,
+            fixedHeader: true
+        });
+        var table = $('#dossiers-table').DataTable();
+    });
+</script>
+</html>

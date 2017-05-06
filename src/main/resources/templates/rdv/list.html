@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments/common :: headTag">
+</head>
+<body>
+<!-- Header -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-ratp">
+    <div th:replace="fragments/common :: navigation"></div>
+</nav>
+<!-- Content -->
+<div class="container" >
+    <h3>Gestion des dossiers</h3>
+    <div class="table-responsive">
+        <table class="display" id="userstable" cellspacing="0" width="100%"
+               style="display: none">
+            <thead>
+            <tr>
+                <th th:text="ID"></th>
+                <th th:text="Patien"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="dossier : ${dossiers}">
+                <td th:text="${dossier.id}"></td>
+                <td th:text="Hani"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <!-- Footer -->
+    <footer th:include="fragments/common :: footer"></footer>
+</div>
+</body>
+</html>

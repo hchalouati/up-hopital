@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments/common :: headTag">
+</head>
+<body>
+<!-- Header -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-ratp">
+    <div th:replace="fragments/common :: navigation"></div>
+</nav>
+<!-- Content -->
+<div class="container" >
+    <form class="form-signin" th:action="@{/login}" method="post">
+        <h2 class="form-signin-heading">Connectez-vous</h2>
+        <div th:if="${param.error}" class="alert invalid-connexion">
+            Nom d'utilisateur ou mot de passe invalide
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success">Vous
+            êtes déconnecté.
+        </div>
+        <input type="text" id="username" name="username" class="form-control"
+               placeholder="Nom d'utilisateur" required="" autofocus=""></input>
+        <input type="password" id="password" name="password" class="form-control"
+               placeholder="Mot de passe" required=""></input>
+        <input class="btn btn-lg btn-primary btn-block" type="submit"></input>
+    </form>
+    <!-- Footer -->
+    <footer th:include="fragments/common :: footer"></footer>
+</div>
+</body>
+</html>

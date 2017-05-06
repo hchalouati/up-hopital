@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head lang="en" th:fragment="headTag">
+    <title>Hôpital</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script th:src="@{/webjars/jquery/2.2.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/jquery-ui/1.11.4/jquery-ui.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap-select/1.7.3-1/js/bootstrap-select.min.js}"></script>
+    <script th:src="@{/webjars/datatables/1.10.10/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/webjars/toastr/2.1.1/toastr.js}"></script>
+    <script th:src="@{/webjars/sweetalert/1.0.0/sweetalert.min.js}"></script>
+    <script th:src="@{/js/app.js}"></script>
+
+    <link th:href="@{/webjars/jquery-ui/1.11.4/jquery-ui.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/sweetalert/1.0.0/sweetalert.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/toastr/2.1.1/toastr.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/font-awesome/4.5.0/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/datatables/1.10.10/css/jquery.dataTables.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/bootstrap-select/1.7.3-1/css/bootstrap-select.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="container" th:fragment="navigation">
+
+    <div class="navbar-header">
+        <div class="navbar-brand">
+            <div class="nav-img">
+                <img height="35" width="35" th:src="@{/img/logo.jpg}" alt="logo"/>
+            </div>
+        </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span> <span
+                class="icon-bar"></span> <span class="icon-bar"></span> <span
+                class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" sec:authorize="isAuthenticated()">
+        <ul class="nav navbar-nav">
+            <li><a th:href="@{/}">
+                <i class="fa fa-home"></i>Accueil</a>
+            </li>
+            <li><a th:href="@{/dossiers/list}">
+                <i class="fa fa-folder"></i>Dossiers</a>
+            </li>
+            <li><a th:href="@{/rdv/list}">
+                <i class="fa fa-calendar"></i>Rendez-vous</a>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a th:href="@{/admin/list.html}">
+                <i class="fa fa-cog"></i>Administration</a>
+            </li>
+            <li><a th:href="@{/compte/view.html}">
+                <i class="fa fa-users"></i>Compte</a>
+            </li>
+            <li><a th:href="@{|/logout|}"><i
+                    class="fa fa-power-off disconnect gi-2x"></i></a></li>
+        </ul>
+    </div>
+
+    <!--/.nav-collapse -->
+</div>
+
+<div th:fragment="footer">&copy; 2017 Hôpital - v1.0.0</div>
+</body>
+</html>

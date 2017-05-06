@@ -1,0 +1,34 @@
+body {
+    padding-top: 50px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 13px;
+}
+
+.fa {
+    margin-right: 5px;
+}
+
+.navbar-brand {
+    padding: 10px 10px;
+}
+
+.form-signin {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.disconnect {
+    color: red;
+}
+
+.invalid-connexion{
+    background: #FF0000;
+}
+
+.alert {
+    float: right;
+    margin-right: 30px;
+    padding: 6px 18px;
+}
+
+.gi-2x{font-size: 1.5em;}
