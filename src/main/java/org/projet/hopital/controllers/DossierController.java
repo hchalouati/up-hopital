@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by hani.chalouati on 06/05/2017.
- */
 @Controller
 public class DossierController {
 

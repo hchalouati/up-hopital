@@ -1,20 +1,44 @@
 package org.projet.hopital.entities;
 
-public class RendezVous {
-    private String date;
-    private String heure;
+import javax.persistence.*;
 
+@Entity
+public class RendezVous {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
+    private String dateRdv;
+    private String heure;
+    @OneToOne(fetch = FetchType.EAGER)
+    private Patient patient;
 
     public RendezVous() {
 
     }
 
-    public String getDate() {
-        return date;
+    public Long getId() {
+        return id;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public String getDateRdv() {
+        return dateRdv;
+    }
+
+    public void setDateRdv(String dateRdv) {
+        this.dateRdv = dateRdv;
     }
 
     public String getHeure() {

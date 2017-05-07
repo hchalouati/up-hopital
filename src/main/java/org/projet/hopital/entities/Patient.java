@@ -1,17 +1,11 @@
 package org.projet.hopital.entities;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- * Created by hani.chalouati on 06/05/2017.
- */
 @Entity
-@Data
 public class Patient {
 
     @Id
@@ -23,4 +17,36 @@ public class Patient {
     private String nom;
 
     private Long nsecu;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public Long getNsecu() {
+        return nsecu;
+    }
+
+    public void setNsecu(Long nsecu) {
+        this.nsecu = nsecu;
+    }
 }

@@ -9,20 +9,34 @@
 </nav>
 <!-- Content -->
 <div class="container" >
-    <h3>Gestion des dossiers</h3>
+    <div class="row">
+        <div>
+            <h3>Gestion des Rendez Vous</h3>
+            <a th:href="@{/rdv/new}" type="button" class="btn btn-primary"
+               aria-label="Nouveau rendezvous">Nouveau Rendez Vous
+            </a>
+        </div>
+    </div>
     <div class="table-responsive">
-        <table class="display" id="userstable" cellspacing="0" width="100%"
-               style="display: none">
+        <table class="display" id="rdvtable" cellspacing="0" width="100%">
             <thead>
             <tr>
                 <th th:text="ID"></th>
-                <th th:text="Patien"></th>
+                <th th:text="Patient"></th>
+                <th th:text="Date"></th>
+                <th th:text="Heure"></th>
+                <th th:text="Actions"></th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="dossier : ${dossiers}">
-                <td th:text="${dossier.id}"></td>
-                <td th:text="Hani"></td>
+            <tr th:each="r : ${rendezvous}">
+                <td th:text="${r.id}"></td>
+                <td th:text="${r.patient.nom +' ' + r.patient.prenom}"></td>
+                <td th:text="${r.dateRdv}"></td>
+                <td th:text="${r.heure}"></td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{|/rdv/${r.id}/edit|}" role="button">Modifier</a>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -32,4 +46,13 @@
     <footer th:include="fragments/common :: footer"></footer>
 </div>
 </body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#rdvtable').DataTable({
+            language: language,
+            fixedHeader: true
+        });
+        var table = $('#rdvtable').DataTable();
+    });
+</script>
 </html>

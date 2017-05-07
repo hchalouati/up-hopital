@@ -1,16 +1,11 @@
 package org.projet.hopital.entities;
 
-import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-/**
- * Created by hani.chalouati on 06/05/2017.
- */
 @Entity
-@Data
 public class Dossier {
 
     @Id
@@ -23,5 +18,27 @@ public class Dossier {
     @OneToOne(fetch = FetchType.EAGER)
     private Patient patient;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 }

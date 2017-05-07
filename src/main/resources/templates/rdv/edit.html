@@ -8,10 +8,10 @@
     <div th:replace="fragments/common :: navigation"></div>
 </nav>
 <!-- Content -->
-<div class="container" >
-    <h3>Création/Modification d'un nouveau dossier client</h3>
-    <form class="form" th:action="@{/dossiers/edit}" method="post">
-        <input type="hidden" name="id" th:value="${dossier.id}"></input>
+<div class="container">
+    <h3>Création/Modification d'un rendezvous client</h3>
+    <form class="form" th:action="@{/rdv/edit}" method="post">
+        <input type="hidden" name="id" th:value="${rendezvous.id}"></input>
         <div class="form-group">
             <label>Patient:</label>
             <select class="selectpicker" id="patient" name="patient">
@@ -20,6 +20,14 @@
                         th:text="${patient.nom + ' ' + patient.prenom}">
                 </option>
             </select>
+        </div>
+        <div class="form-group">
+            <label for="dateRdv">Date:</label>
+            <input type="date" id="dateRdv" name="dateRdv" th:value="${rendezvous.dateRdv}"></input>
+        </div>
+        <div class="form-group">
+            <label for="heure">Heure:</label>
+            <input id="heure" name="heure" th:value="${rendezvous.heure}"></input>
         </div>
 
         <button type="submit" class="btn btn-primary">Enregistrer</button>

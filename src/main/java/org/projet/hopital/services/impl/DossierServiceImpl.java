@@ -6,9 +6,6 @@ import org.projet.hopital.services.DossierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Created by hani.chalouati on 06/05/2017.
- */
 @Service
 public class DossierServiceImpl implements DossierService {
 
