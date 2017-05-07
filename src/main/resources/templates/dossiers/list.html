@@ -21,15 +21,19 @@
         <table class="display" id="dossiers-table" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th th:text="ID"></th>
-                    <th th:text="Patient"></th>
-                    <th th:text="Actions"></th>
+                    <th>ID</th>
+                    <th>Nom patient</th>
+                    <th>Prénom patient</th>
+                    <th>N° Sécurité Sociale</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="dossier : ${dossiers}">
                     <td th:text="${dossier.id}"></td>
-                    <td th:text="${dossier.patient.nom +' ' + dossier.patient.prenom}"></td>
+                    <td th:text="${dossier.patient.nom}"></td>
+                    <td th:text="${dossier.patient.prenom}"></td>
+                    <td th:text="${dossier.patient.nsecu}"></td>
                     <td>
                         <a class="btn btn-primary" th:href="@{|/dossiers/${dossier.id}/edit|}" role="button">Modifier</a>
                     </td>

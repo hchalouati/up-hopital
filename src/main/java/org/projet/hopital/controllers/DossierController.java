@@ -24,8 +24,7 @@ public class DossierController {
     private PatientService patientService;
 
     @RequestMapping(value = "/dossiers/list")
-    public String index(Model model, HttpServletRequest request) {
-
+    public String index(Model model) {
         Iterable<Dossier> dossiers = dossierService.getDossiers();
 
         model.addAttribute("dossiers", dossiers);
@@ -34,7 +33,6 @@ public class DossierController {
 
     @RequestMapping(value = "/dossiers/{id}/edit")
     public String getDossier(Model model, @PathVariable(value = "id") Long id) {
-
         Iterable<Patient> patients = patientService.getPatients();
         Dossier dossier = dossierService.getDossierById(id);
 
@@ -45,18 +43,16 @@ public class DossierController {
 
     @RequestMapping(value = "/dossiers/new")
     public String getDossier(Model model) {
-
-        Iterable<Patient> patients = patientService.getPatients();
         Dossier dossier = new Dossier();
-
+        Patient patient = new Patient();
+        dossier.setPatient(patient);
         model.addAttribute("dossier", dossier);
-        model.addAttribute("patients", patients);
         return "dossiers/edit";
     }
 
     @RequestMapping(value = "/dossiers/edit", method = RequestMethod.POST)
     public String getDossier(@ModelAttribute("dossier") Dossier dossier) {
-
+        patientService.savePatient(dossier.getPatient());
         dossierService.saveDossier(dossier);
         return "redirect:/dossiers/list";
     }
